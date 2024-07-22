@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1721672893
+heroi.gd::GDScript::-1::1721406956::0::1::::Heroi<>CharacterBody2D<>::
+heroi.tscn::PackedScene::4639687844968355366::1721528094::0::1::::<><>::res://heroi.gd<>uid://bm0e7nb58phxc::::res://assets/1bit_heroi.png
+main.tscn::PackedScene::359149324128729775::1721528094::0::1::::<><>::uid://b7dq8l74droeo::::res://heroi.tscn<>uid://bc4flif35xhxn::::res://assets/1bit_tile.png<>uid://cgrchwug23n5i::::res://monstro.tscn
+monstro.gd::GDScript::-1::1721528093::0::1::::Monstro<>CharacterBody2D<>::
+monstro.tscn::PackedScene::5229203972295881480::1721528094::0::1::::<><>::res://monstro.gd<>uid://cdhmffc7j3a2s::::res://assets/icon.svg
+::res://assets/::1721406444
+1bit_heroi.png::CompressedTexture2D::3280596950333123124::1721406442::1721406444::1::::<><>::
+1bit_tile.png::CompressedTexture2D::2586988983757703567::1721249893::1721273012::1::::<><>::
+icon.svg::CompressedTexture2D::4998596342634861336::1721224091::1721273022::1::::<><>::

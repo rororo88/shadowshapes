@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://fd8ewitdbnv0"]
+
+[ext_resource type="PackedScene" uid="uid://b7dq8l74droeo" path="res://heroi.tscn" id="1_mwkbd"]
+[ext_resource type="Texture2D" uid="uid://bc4flif35xhxn" path="res://assets/1bit_tile.png" id="2_nus63"]
+[ext_resource type="PackedScene" uid="uid://cgrchwug23n5i" path="res://monstro.tscn" id="3_nfwgn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxh1f"]
+texture = ExtResource("2_nus63")
+0:5/0 = 0
+0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:5/0/physics_layer_0/angular_velocity = 0.0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0 = 0
+1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:5/0/physics_layer_0/angular_velocity = 0.0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_6nht1"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_nxh1f")
+
+[node name="MAIN" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_6nht1")
+format = 2
+layer_0/tile_data = PackedInt32Array(1376256, 0, 5, 1376257, 0, 5, 1376258, 0, 5, 1376259, 0, 5, 1376260, 0, 5, 1376261, 0, 5, 1376262, 0, 5, 1376263, 0, 5, 1376264, 0, 5, 1376265, 0, 5, 1376266, 0, 5, 1376267, 0, 5, 1376268, 0, 5, 1376269, 0, 5, 1376270, 0, 5, 1376271, 0, 5, 1376272, 0, 5, 1376273, 0, 5, 1376274, 0, 5, 1376275, 0, 5, 1376276, 0, 5, 1376277, 0, 5, 1376278, 0, 5, 1376279, 0, 5, 1376280, 0, 5, 1441791, 131072, 5, 1376255, 131072, 5, 1376281, 0, 5, 1310745, 0, 5, 1376282, 65536, 5, 1376283, 65536, 5, 1310747, 65536, 5, 1310748, 65536, 5, 1310749, 65536, 5, 1310750, 65536, 5, 1310751, 65536, 5, 1310752, 65536, 5, 1310753, 65536, 5, 1310754, 65536, 5, 1310755, 65536, 5, 1376292, 65536, 5, 1376293, 65536, 5, 1376294, 65536, 5, 1376295, 65536, 5, 1376296, 65536, 5, 1376297, 65536, 5, 1376298, 65536, 5, 1376299, 65536, 5, 1376300, 65536, 5, 1376301, 65536, 5, 1376302, 65536, 5, 1376303, 65536, 5, 1376304, 65536, 5, 1376305, 65536, 5, 1376306, 65536, 5, 1376307, 65536, 5, 1376308, 65536, 5, 1376309, 65536, 5, 1376310, 65536, 5, 1441846, 65536, 5, 1441847, 65536, 5, 1441848, 65536, 5, 1441849, 65536, 5, 1441790, 65536, 5, 1441789, 65536, 5, 1441788, 65536, 5, 1441787, 65536, 5, 1441786, 65536, 5, 1441785, 65536, 5, 1441784, 65536, 5, 1441783, 65536, 5, 1441782, 65536, 5, 1441781, 65536, 5, 1441780, 65536, 5, 1441779, 65536, 5, 1441778, 65536, 5, 1441777, 65536, 5, 1441776, 65536, 5, 1441775, 65536, 5, 1441774, 65536, 5, 1441773, 65536, 5, 1441772, 65536, 5, 1441771, 65536, 5)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_mwkbd")]
+position = Vector2(391, 549)
+
+[node name="Monstro" parent="." instance=ExtResource("3_nfwgn")]
+position = Vector2(-29, 505)
