@@ -1,6 +1,11 @@
+Label
+Control
+Camera2D
+TextureRect
+Panel
+CanvasLayer
 CollisionShape2D
 Area2D
-Camera2D
 Sprite2D
 CharacterBody2D
 TileMap

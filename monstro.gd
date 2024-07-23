@@ -4,8 +4,8 @@ class_name Monstro
 # VAR monstro
 
 var health: float = 100.0
-var speed: float = 240
-var damage: int = 50
+var speed: float = 100
+var damage: int = 500
 var target: Heroi 
 
 func _physics_process(delta: float) -> void:
@@ -22,5 +22,7 @@ func _physics_process(delta: float) -> void:
 func _on_hitbox_body_entered(body):
 	if "get_damage" in body:
 		var knockback_direction = (body.global_position - global_position).normalized()
+		knockback_direction.y -= 1
+		knockback_direction = knockback_direction.normalized()
 		body.get_damage(damage, knockback_direction)
 		

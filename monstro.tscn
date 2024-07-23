@@ -7,25 +7,25 @@
 radius = 26.0192
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjkfh"]
-size = Vector2(60, 59)
+size = Vector2(60, 60)
 
 [node name="Monstro" type="CharacterBody2D" groups=["Monstro"]]
 collision_layer = 4
 script = ExtResource("1_c2a1m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_4v20u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.999999, 9.53674e-07)
 scale = Vector2(0.527344, 0.527344)
 texture = ExtResource("2_4xhxb")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4v20u")
+
 [node name="HITBOX" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
-position = Vector2(1, -0.5)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_cjkfh")
 debug_color = Color(0.644592, 0.0832945, 0.220322, 0.42)
 

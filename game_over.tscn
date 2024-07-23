@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://8b8llmi5lq74"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOver TX" type="Label" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 147.0
+offset_right = 436.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
