@@ -1,8 +1,5 @@
-res://main.tscn
-res://heroi.tscn
-res://monstro.tscn
 res://game_over.tscn
 res://lightsource.tscn
-res://monstro.gd
-res://heroi.gd
-res://lightsource.gd
+res://main.tscn
+res://safezone.tscn
+res://safezone.gd
