@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4txa43g8anox"
-path="res://.godot/imported/1bit_heroi_on_dark.png-bcd773ca72979530d71cfeedc173308a.ctex"
+uid="uid://bg3b6n8i8twxr"
+path="res://.godot/imported/1bit_tiles.png-cf4168592c9c7ffb8354c1dca5f74ccb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1bit_heroi_on_dark.png"
-dest_files=["res://.godot/imported/1bit_heroi_on_dark.png-bcd773ca72979530d71cfeedc173308a.ctex"]
+source_file="res://assets/1bit_tiles.png"
+dest_files=["res://.godot/imported/1bit_tiles.png-cf4168592c9c7ffb8354c1dca5f74ccb.ctex"]
 
 [params]
 

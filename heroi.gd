@@ -11,9 +11,9 @@ class_name Heroi
 var player_alive = true
 
 #KNOCKBACK VAR
-@export var knockback_force: float = 850.0
+@export var knockback_force: float = 1650.0
 @export var knockback_duration: float = 0.2
-var knockback_time: float = 0.1
+var knockback_time: float = 0.0
 var knockback_direction: Vector2 = Vector2.ZERO
 
 func _ready():

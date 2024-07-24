@@ -47,9 +47,11 @@ jump={
 2d_physics/layer_1="Heroi"
 2d_physics/layer_2="TileMap"
 2d_physics/layer_3="Monstro"
+2d_physics/layer_4="safezone"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

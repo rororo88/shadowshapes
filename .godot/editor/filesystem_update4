@@ -1,8 +1,6 @@
 res://main.tscn
-res://heroi.gd
 res://heroi.tscn
 res://monstro.tscn
-res://monstro.gd
-res://global.gd
-res://HUD.gd
 res://game_over.tscn
+res://lightsource.tscn
+res://monstro.gd
