@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cki0aggnwg0ps"
-path="res://.godot/imported/1bit_tiles.png-cf4168592c9c7ffb8354c1dca5f74ccb.ctex"
+uid="uid://cw07iu60k3duw"
+path="res://.godot/imported/1bit_monster.png-246709699dcd5d28b32b9a7e4aee7da4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1bit_tiles.png"
-dest_files=["res://.godot/imported/1bit_tiles.png-cf4168592c9c7ffb8354c1dca5f74ccb.ctex"]
+source_file="res://assets/1bit_monster.png"
+dest_files=["res://.godot/imported/1bit_monster.png-246709699dcd5d28b32b9a7e4aee7da4.ctex"]
 
 [params]
 

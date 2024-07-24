@@ -1,13 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgrchwug23n5i"]
+[gd_scene load_steps=9 format=3 uid="uid://cgrchwug23n5i"]
 
 [ext_resource type="Script" path="res://monstro.gd" id="1_c2a1m"]
-[ext_resource type="Texture2D" uid="uid://cdhmffc7j3a2s" path="res://assets/icon.svg" id="2_4xhxb"]
+[ext_resource type="Texture2D" uid="uid://cw07iu60k3duw" path="res://assets/1bit_monster.png" id="2_xuy7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atprx"]
+atlas = ExtResource("2_xuy7s")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8mdf"]
+atlas = ExtResource("2_xuy7s")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grx6e"]
+atlas = ExtResource("2_xuy7s")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqynm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atprx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8mdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grx6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4v20u"]
 radius = 31.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjkfh"]
-size = Vector2(66, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f278y"]
+radius = 40.0
 
 [node name="Monstro" type="CharacterBody2D" groups=["Monstro"]]
 collision_layer = 4
@@ -15,25 +44,28 @@ collision_mask = 9
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_c2a1m")
+movement_speed = 220.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.999999, 9.53674e-07)
-rotation = -1.57977
-scale = Vector2(0.527344, 0.527344)
-texture = ExtResource("2_4xhxb")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(1.41406, 1.41406)
+sprite_frames = SubResource("SpriteFrames_qqynm")
+autoplay = "default"
+frame_progress = 0.14144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_4v20u")
 
 [node name="HITBOX" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_cjkfh")
+visible = false
+position = Vector2(3, 2)
+shape = SubResource("CircleShape2D_f278y")
 debug_color = Color(0.644592, 0.0832945, 0.220322, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [connection signal="body_entered" from="HITBOX" to="." method="_on_hitbox_body_entered"]
