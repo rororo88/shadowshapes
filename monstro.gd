@@ -4,13 +4,15 @@ class_name Monstro
 # VAR monstro
 
 var health: float = 100.0
-var speed: float = 100
+var movement_speed = 100.0
 var damage: int = 50
-var target: Heroi 
+@export var target: Node2D = null
+@onready var sprite_2d = $Sprite2D # pendente AnimatedSprite2D
 
 @onready var navigation_agent_2d = $NavigationAgent2D
 
 func _ready():
+	call_deferred("seeker_setup")
 	pass
 	
 func seeker_setup():
@@ -19,13 +21,22 @@ func seeker_setup():
 		navigation_agent_2d.target_position = target.global_position
 
 func _physics_process(delta):
+	if target:
+		navigation_agent_2d.target_position = target.global_position
 	if navigation_agent_2d.is_navigation_finished():
 		return
 		
 	var current_agent_position = global_position
 	var next_path_position = navigation_agent_2d.get_next_path_position()
-	velocity = current_agent_position.direction_to(next_path_position) * speed
+	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
+	
+	#ANIMAÇÂO AQUI
+	if velocity.x > 0:
+		sprite_2d.flip_h = false
+	else:
+		sprite_2d.flip_h = true
+	
 
 	#if target == null:
 		#target = get_tree().get_nodes_in_group("Heroi")[0]

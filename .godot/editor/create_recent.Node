@@ -1,12 +1,12 @@
-NavigationAgent2D
+CollisionPolygon2D
 TileMap
+NavigationAgent2D
 Sprite2D
 CanvasLayer
 NavigationRegion2D
 NavigationObstacle2D
 CollisionShape2D
 Area2D
-CollisionPolygon2D
 StaticBody2D
 Label
 Control

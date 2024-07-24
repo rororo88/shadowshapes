@@ -1,18 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://6jr8lsaidkf0"]
+[gd_scene load_steps=6 format=3 uid="uid://6jr8lsaidkf0"]
 
 [ext_resource type="Script" path="res://lightsource.gd" id="1_dmq8h"]
-[ext_resource type="Texture2D" uid="uid://daeitu275lfpt" path="res://assets/luz.png" id="2_7s1d8"]
+[ext_resource type="Texture2D" uid="uid://f4hpot4nxnb5" path="res://assets/1bit_light.png" id="2_mugs7"]
 [ext_resource type="Script" path="res://aread2dLUZ.gd" id="2_yrr2g"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hxvwr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u8ojn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_utcm0"]
-size = Vector2(60, 112)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkrjw"]
-size = Vector2(56, 109)
 
 [node name="Lightsource" type="StaticBody2D"]
 material = SubResource("CanvasItemMaterial_hxvwr")
@@ -21,23 +15,19 @@ collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_u8ojn")
 script = ExtResource("1_dmq8h")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.309804)
-position = Vector2(-2.38419e-07, -1.19209e-07)
-scale = Vector2(0.0489396, 0.180645)
-texture = ExtResource("2_7s1d8")
+[node name="1BitLight" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.278431)
+scale = Vector2(3.325, 3.325)
+texture = ExtResource("2_mugs7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_utcm0")
-debug_color = Color(0.767337, 0.533704, 0.126174, 0.42)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1, -1, 0, -63, -64, 63, 66, 65, -1, -68)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_yrr2g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_lkrjw")
-debug_color = Color(0.118742, 0.58661, 0.747538, 0.42)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 1, -65, -66, 65, 65, 65, 1, -65)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
