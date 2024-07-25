@@ -1,10 +1,14 @@
-[gd_scene format=3 uid="uid://8b8llmi5lq74"]
+[gd_scene load_steps=3 format=3 uid="uid://8b8llmi5lq74"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_53rm8"]
+[ext_resource type="Script" path="res://Button.gd" id="2_1gi1h"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_53rm8")
 
 [node name="GameOver TX" type="Label" parent="."]
 layout_mode = 0
@@ -14,3 +18,21 @@ offset_right = 436.0
 offset_bottom = 251.0
 theme_override_font_sizes/font_size = 50
 text = "Game Over"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 215.0
+offset_top = 207.0
+offset_right = 363.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Restart"
+script = ExtResource("2_1gi1h")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
