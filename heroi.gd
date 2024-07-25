@@ -61,18 +61,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	# função para receber dano
-func get_damage(amount: int, knockback_direction: Vector2) -> void:
+func get_damage(amount: int, received_knockback_direction: Vector2) -> void:
 	health -= amount
 	print(health)
-	apply_knockback(knockback_direction)
+	apply_knockback(received_knockback_direction)
 	$AnimatedSprite2D.play("knockback")
 	if health <= 0:
 		die()
 
 # função knockback
-func apply_knockback(knockback_direction: Vector2) -> void:
+func apply_knockback(the_knockback_direction: Vector2) -> void:
 	knockback_time = knockback_duration
-	self.knockback_direction = knockback_direction
+	self.knockback_direction = the_knockback_direction
 	if ! is_on_floor():
 		$AnimatedSprite2D.play("knockback")
 
@@ -80,12 +80,13 @@ func apply_knockback(knockback_direction: Vector2) -> void:
 func die():
 	if health <= 0:
 		print("Heroi Morreu!")
-		Global.lose_life()
+		Global.call_deferred("lose_life") #lose_life()
 		reset_hero()
 
 func reset_hero():
 	health = max_health
 	global_position = start_pos
+	velocity = Vector2.ZERO
 	print("respawn", health)
 	if has_node(monster_path):
 		var monster = get_node(monster_path) as Monstro

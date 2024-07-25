@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://fd8ewitdbnv0"]
+[gd_scene load_steps=19 format=3 uid="uid://fd8ewitdbnv0"]
 
 [ext_resource type="PackedScene" uid="uid://b7dq8l74droeo" path="res://heroi.tscn" id="1_mwkbd"]
 [ext_resource type="Texture2D" uid="uid://cki0aggnwg0ps" path="res://assets/1bit_tiles.png" id="1_x2jld"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bo1gpqsn3kvmv" path="res://assets/1bit_heartfull.png" id="6_wmwlm"]
 [ext_resource type="PackedScene" uid="uid://6jr8lsaidkf0" path="res://safezone.tscn" id="7_qurkc"]
 [ext_resource type="PackedScene" uid="uid://bnetbk1hardiu" path="res://kill_zone.tscn" id="9_wwl7r"]
+[ext_resource type="FontFile" uid="uid://bgc5t5ij6e38s" path="res://assets/Kenney Mini Square.ttf" id="10_0n5xk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k8fm7"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -144,7 +145,7 @@ layer_1/tile_data = PackedInt32Array(1966080, 458752, 6, 1966081, 327680, 6, 196
 position = Vector2(983, 418)
 
 [node name="Monstro" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_nfwgn")]
-position = Vector2(12, 181)
+position = Vector2(-140, -2)
 movement_speed = 250.0
 target = NodePath("../Heroi")
 
@@ -192,3 +193,19 @@ shape = SubResource("RectangleShape2D_kxqjk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone2"]
 position = Vector2(1473, 490)
 shape = SubResource("RectangleShape2D_du272")
+
+[node name="tutorial 1" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 384.0
+offset_right = 187.0
+offset_bottom = 407.0
+theme_override_fonts/font = ExtResource("10_0n5xk")
+text = "Run with \"a\" and \"d\""
+
+[node name="tutorial 2" type="Label" parent="."]
+offset_left = 362.0
+offset_top = 388.0
+offset_right = 494.0
+offset_bottom = 411.0
+theme_override_fonts/font = ExtResource("10_0n5xk")
+text = "\"space\" to jump"

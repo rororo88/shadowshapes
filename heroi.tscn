@@ -104,7 +104,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfb0p"]
-size = Vector2(26, 54)
+size = Vector2(24, 47)
 
 [node name="Heroi" type="CharacterBody2D" groups=["Heroi"]]
 position = Vector2(0, 1)
@@ -118,7 +118,7 @@ animation = &"idle"
 autoplay = "jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-1, 4.5)
 shape = SubResource("RectangleShape2D_dfb0p")
 
 [node name="Camera2D" type="Camera2D" parent="."]

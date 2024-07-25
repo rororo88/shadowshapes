@@ -15,14 +15,14 @@ var damage: int = 50
 var start_pos : Vector2 = Vector2(12, 181)
 
 func _ready():
+	set_physics_process(false)
 	call_deferred("seeker_setup")
-	start_pos = global_position
 
-	
 func seeker_setup():
 	await get_tree().physics_frame
 	if target:
 		navigation_agent_2d.target_position = target.global_position
+		set_physics_process(true)
 
 func _physics_process(delta):
 	if target:
