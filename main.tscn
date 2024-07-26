@@ -159,7 +159,11 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(98, 446)
 process_callback = 0
+limit_bottom = 570
+limit_smoothed = true
 position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_kco3f")

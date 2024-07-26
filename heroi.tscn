@@ -171,6 +171,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_lvugg"]
 resource_name = "idle"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -379,9 +380,9 @@ advance_mode = 2
 states/Move/node = SubResource("AnimationNodeBlendSpace1D_pho82")
 states/Move/position = Vector2(463, 100)
 states/jump_end/node = SubResource("AnimationNodeAnimation_pi2y4")
-states/jump_end/position = Vector2(708, -18)
+states/jump_end/position = Vector2(694, 42)
 states/jump_start/node = SubResource("AnimationNodeAnimation_q17np")
-states/jump_start/position = Vector2(463, -18)
+states/jump_start/position = Vector2(463, -37)
 transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_dovsr"), "Move", "jump_start", SubResource("AnimationNodeStateMachineTransition_hfeq5"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_j54hx"), "jump_end", "Move", SubResource("AnimationNodeStateMachineTransition_pfb1y")]
 graph_offset = Vector2(13, -75)
 
@@ -418,10 +419,10 @@ tree_root = SubResource("AnimationNodeStateMachine_lj1uy")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Move/blend_position = 0
 
-[node name="HeroiStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "heroi", "animation_tree")]
+[node name="HeroiStateMachine" type="Node" parent="." node_paths=PackedStringArray("heroi", "current_state", "animation_tree")]
 script = ExtResource("5_1uds3")
-current_state = NodePath("Ground")
 heroi = NodePath("..")
+current_state = NodePath("Ground")
 animation_tree = NodePath("../AnimationTree")
 
 [node name="Ground" type="Node" parent="HeroiStateMachine" node_paths=PackedStringArray("air_state")]

@@ -7,7 +7,3 @@ class_name AirState
 func state_process(delta):
 	if(heroi.is_on_floor()):
 		next_state = landing_state
-
-func on_exit():
-	if(next_state ==landing_state):
-		playback.travel(landing_animation)

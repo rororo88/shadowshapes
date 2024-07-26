@@ -1,8 +1,8 @@
 extends Node
 class_name HeroiStateMachine
 
-@export var current_state : State
 @export var heroi : CharacterBody2D
+@export var current_state : State
 @export var animation_tree : AnimationTree
 
 var states : Array[State]
