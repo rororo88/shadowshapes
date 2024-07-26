@@ -429,14 +429,14 @@ script = ExtResource("6_7qlow")
 air_state = NodePath("../Air")
 jump_animation = "jump_start"
 
-[node name="Air" type="Node" parent="HeroiStateMachine" node_paths=PackedStringArray("landing_state")]
+[node name="Air" type="Node" parent="HeroiStateMachine" node_paths=PackedStringArray("ground_state", "landing_state")]
 script = ExtResource("7_i3874")
+ground_state = NodePath("../Ground")
 landing_state = NodePath("../Landing")
 landing_animation = "jump_end"
 
 [node name="Landing" type="Node" parent="HeroiStateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("8_21r8r")
-landing_animation_name = "jump_end"
 ground_state = NodePath("../Ground")
 can_move = false
 

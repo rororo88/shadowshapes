@@ -1,7 +1,8 @@
-res://main.tscn
-res://monstro.tscn
-res://kill_zone.tscn
 res://heroi.tscn
-res://global.gd
+res://main.tscn
+res://HeroiStateMachine.gd
+res://HeroiState.gd
+res://GroundState.gd
+res://LandingState.gd
+res://AirState.gd
 res://heroi.gd
-res://monstro.gd
