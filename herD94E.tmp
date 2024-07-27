@@ -1,0 +1,204 @@
+[gd_scene load_steps=15 format=3 uid="uid://b7dq8l74droeo"]
+
+[ext_resource type="Script" path="res://heroi.gd" id="1_hf6p6"]
+[ext_resource type="Texture2D" uid="uid://k2hutj3yjcc0" path="res://assets/1bit_heroi_idle.png" id="3_nhacc"]
+[ext_resource type="Texture2D" uid="uid://dvugj16xn15tq" path="res://assets/1bit_heroi_run.png" id="4_omxsp"]
+[ext_resource type="Script" path="res://HeroiStateMachine.gd" id="5_1uds3"]
+[ext_resource type="Texture2D" uid="uid://behw2ye62g2uq" path="res://assets/1bit_heroi_jump_start.png" id="5_m0imk"]
+[ext_resource type="Script" path="res://GroundState.gd" id="6_7qlow"]
+[ext_resource type="Script" path="res://AirState.gd" id="7_i3874"]
+[ext_resource type="Script" path="res://StateDebug.gd" id="9_85i1s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfb0p"]
+size = Vector2(24, 47)
+
+[sub_resource type="Animation" id="Animation_3jlnv"]
+resource_name = "idle"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_nhacc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_hpw5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qqd3t"]
+resource_name = "run"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_omxsp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_f11bk"]
+resource_name = "jump"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_m0imk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d6iio"]
+_data = {
+"RESET": SubResource("Animation_hpw5c"),
+"idle": SubResource("Animation_3jlnv"),
+"jump": SubResource("Animation_f11bk"),
+"run": SubResource("Animation_qqd3t")
+}
+
+[node name="Heroi" type="CharacterBody2D" groups=["Heroi"]]
+position = Vector2(0, 1)
+collision_mask = 6
+script = ExtResource("1_hf6p6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(3.96875, 3.96875)
+texture = ExtResource("4_omxsp")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_dfb0p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d6iio")
+}
+
+[node name="HeroiStateMachine" type="Node" parent="." node_paths=PackedStringArray("heroi", "current_state", "animation_player")]
+script = ExtResource("5_1uds3")
+heroi = NodePath("..")
+current_state = NodePath("GroundState")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="GroundState" type="Node" parent="HeroiStateMachine" node_paths=PackedStringArray("air_state")]
+script = ExtResource("6_7qlow")
+jump_velocity = null
+air_state = NodePath("../AirState")
+jump_animation = "jump_start"
+can_move = null
+
+[node name="AirState" type="Node" parent="HeroiStateMachine" node_paths=PackedStringArray("landing_state")]
+script = ExtResource("7_i3874")
+landing_state = NodePath("")
+landing_animation = "jump_end"
+
+[node name="StateDebug" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_left = -74.0
+offset_top = -61.0
+offset_right = 82.0
+offset_bottom = -33.0
+theme_override_font_sizes/font_size = 20
+text = "State:"
+script = ExtResource("9_85i1s")
+state_machine = NodePath("../HeroiStateMachine")

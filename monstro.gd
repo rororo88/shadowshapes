@@ -4,15 +4,15 @@ class_name Monstro
 # VAR monstro
 
 var health: float = 100.0
-@export var movement_speed = 120.0
-var damage: int = 50
+@export var movement_speed = 230
+@export var damage: int = 50
 
 @export var target: Node2D = null
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var navigation_agent_2d = $NavigationAgent2D
 
 # Variavel Posição Inicial
-var start_pos : Vector2 = Vector2(12, 181)
+var start_pos : Vector2 = Vector2(-130, -2)
 
 func _ready():
 	set_physics_process(false)
@@ -24,7 +24,7 @@ func seeker_setup():
 		navigation_agent_2d.target_position = target.global_position
 		set_physics_process(true)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target:
 		navigation_agent_2d.target_position = target.global_position
 	if navigation_agent_2d.is_navigation_finished():
@@ -43,7 +43,7 @@ func _physics_process(delta):
 		
 # FUNC RESET DE POSIÇÂO
 func reset_pos():
-	global_position = start_pos
+	set_position(start_pos)
 
 
 # DANO
