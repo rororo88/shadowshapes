@@ -1,8 +1,14 @@
-res://heroi.tscn
 res://main.tscn
-res://HeroiStateMachine.gd
+res://heroi.tscn
 res://HeroiState.gd
 res://GroundState.gd
+res://HeroiStateMachine.gd
 res://LandingState.gd
 res://AirState.gd
 res://heroi.gd
+res://safezone.gd
+res://monstro.gd
+res://game_over.tscn
+res://monstro.tscn
+res://level.gd
+res://StateDebug.gd

@@ -44,7 +44,6 @@ collision_mask = 9
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_c2a1m")
-movement_speed = 220.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, 4.76837e-07)
@@ -54,14 +53,12 @@ autoplay = "default"
 frame_progress = 0.14144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_4v20u")
 
 [node name="HITBOX" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
-visible = false
 position = Vector2(3, 2)
 shape = SubResource("CircleShape2D_f278y")
 debug_color = Color(0.644592, 0.0832945, 0.220322, 0.42)
