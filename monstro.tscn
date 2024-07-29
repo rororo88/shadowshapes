@@ -36,7 +36,7 @@ animations = [{
 radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f278y"]
-radius = 40.0
+radius = 36.0139
 
 [node name="Monstro" type="CharacterBody2D" groups=["Monstro"]]
 collision_layer = 4
@@ -59,7 +59,7 @@ shape = SubResource("CircleShape2D_4v20u")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
-position = Vector2(3, 2)
+position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_f278y")
 debug_color = Color(0.644592, 0.0832945, 0.220322, 0.42)
 

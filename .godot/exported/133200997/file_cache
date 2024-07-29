@@ -1,7 +1,10 @@
-res://game_over.tscn::3e287ce1fdced1ef99b13774504d51df::1722041663::res://.godot/exported/133200997/export-d8e4acb474e0f28479495aaad84d873f-game_over.scn
-res://heroi.tscn::a6f79daa77abd90e39751f454d05441b::1722048026::res://.godot/exported/133200997/export-eda18b0b8d8bb702017b89605bbea496-heroi.scn
+res://game_over.tscn::dedf79046ccb5f73ad4a799e359b153f::1722269124::res://.godot/exported/133200997/export-d8e4acb474e0f28479495aaad84d873f-game_over.scn
+res://heroi.tscn::befc0f4abb79232f6e196bc48655a015::1722272986::res://.godot/exported/133200997/export-eda18b0b8d8bb702017b89605bbea496-heroi.scn
 res://kill_zone.tscn::7289f82a0d459a14270f917356b79ca8::1722035703::res://.godot/exported/133200997/export-3e8d2a8719f3c4fabad73033c3249f1d-kill_zone.scn
-res://main.tscn::05da81fb77fe9c3300e9830b6555ac7a::1722048026::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
-res://monstro.tscn::1688c182c0e4b15b97ca9b4dd791e9ce::1722048042::res://.godot/exported/133200997/export-62c6448088de6a9c5f78e33d6c9edd7d-monstro.scn
+res://main.tscn::9ee17b40afe32204feb75db98b616ca2::1722273282::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://monstro.tscn::8382be3df1bcfdc9f9f896c239d9b240::1722272986::res://.godot/exported/133200997/export-62c6448088de6a9c5f78e33d6c9edd7d-monstro.scn
 res://player_spawner.tscn::8cd929188d8137b7de96396dd1d4e0b9::1722035631::res://.godot/exported/133200997/export-d1e7c09a3a399f42cd3784b948e29b65-player_spawner.scn
-res://safezone.tscn::e6c53ad2373b1ca63a199498f51b768d::1722035631::res://.godot/exported/133200997/export-8503b7c510c63a37f622837116f67df7-safezone.scn
+res://safezone.tscn::c0c78d4b775ae5c5988b40173fc655a6::1722262550::res://.godot/exported/133200997/export-8503b7c510c63a37f622837116f67df7-safezone.scn
+res://default_bus_layout.tres::107bb6fc4075da959d35be5a06b6d486::1722266120::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://godotengine.tscn::ddfab204aa53cf9ea5af93f39ab108f8::1722268890::res://.godot/exported/133200997/export-aa42890fd1184faa5b63d8ce9674ae3a-godotengine.scn
+res://main_menu.tscn::c3d1b1c3a15bbd6cc0197f4c11129ee2::1722268889::res://.godot/exported/133200997/export-8b03550a1e82db90fe95208a9e9dbb82-main_menu.scn

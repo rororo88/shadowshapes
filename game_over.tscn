@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8b8llmi5lq74"]
+[gd_scene load_steps=7 format=3 uid="uid://8b8llmi5lq74"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_53rm8"]
 [ext_resource type="Script" path="res://Button.gd" id="2_1gi1h"]
+[ext_resource type="FontFile" uid="uid://bgc5t5ij6e38s" path="res://assets/Kenney Mini Square.ttf" id="2_7ah8d"]
+[ext_resource type="AudioStream" uid="uid://cxqblefdx3ggk" path="res://assets/synth.wav" id="3_lgdc0"]
+[ext_resource type="AudioStream" uid="uid://cvwefyluaxqtc" path="res://assets/restart.wav" id="5_av4nq"]
+[ext_resource type="Script" path="res://ButtonMainMenu.gd" id="5_ox828"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -10,16 +14,55 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_53rm8")
 
-[node name="GameOver TX" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 162.0
-offset_top = 147.0
-offset_right = 436.0
-offset_bottom = 251.0
-theme_override_font_sizes/font_size = 50
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 652.0
+offset_bottom = 490.0
+color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="GameOver TX" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 106.0
+offset_top = 76.0
+offset_right = 494.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7ah8d")
+theme_override_font_sizes/font_size = 70
 text = "Game Over"
 
-[node name="Button" type="Button" parent="."]
+[node name="ButtonRestart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 169.0
+offset_right = 364.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_7ah8d")
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+script = ExtResource("2_1gi1h")
+
+[node name="RestartSound" type="AudioStreamPlayer2D" parent="ButtonRestart"]
+position = Vector2(-235, -247)
+stream = ExtResource("5_av4nq")
+volume_db = 1.224
+
+[node name="ButtonMainMenu" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -27,12 +70,23 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 215.0
-offset_top = 207.0
+offset_top = 276.0
 offset_right = 363.0
-offset_bottom = 289.0
+offset_bottom = 357.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Restart"
-script = ExtResource("2_1gi1h")
+theme_override_fonts/font = ExtResource("2_7ah8d")
+theme_override_font_sizes/font_size = 26
+text = "Main menu"
+script = ExtResource("5_ox828")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="RestartSound" type="AudioStreamPlayer2D" parent="ButtonMainMenu"]
+position = Vector2(-235, -247)
+stream = ExtResource("5_av4nq")
+volume_db = 1.224
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lgdc0")
+
+[connection signal="pressed" from="ButtonRestart" to="ButtonRestart" method="_on_pressed"]
+[connection signal="pressed" from="ButtonMainMenu" to="ButtonMainMenu" method="_on_pressed"]
