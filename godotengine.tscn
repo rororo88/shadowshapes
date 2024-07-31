@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqqhccy1evudp"]
+
+[ext_resource type="Texture2D" uid="uid://23i74fwdjdhq" path="res://assets/logo_vertical_color_dark.png" id="1_3opr0"]
+[ext_resource type="Script" path="res://intro.gd" id="1_rxhxk"]
+
+[sub_resource type="Animation" id="Animation_ikjsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.00784314, 0.00784314, 0.00784314, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yt3ab"]
+resource_name = "fadein"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.00784314, 0.00784314, 0.00784314, 1), Color(0.00784314, 0.00784314, 0.00784314, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04lcq"]
+resource_name = "fadeout"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.00784314, 0.00784314, 0.00784314, 0), Color(0.00784314, 0.00784314, 0.00784314, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cs7ln"]
+_data = {
+"RESET": SubResource("Animation_ikjsr"),
+"fadein": SubResource("Animation_yt3ab"),
+"fadeout": SubResource("Animation_04lcq")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rxhxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(329, 247)
+scale = Vector2(0.393799, 0.393799)
+texture = ExtResource("1_3opr0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -28.0
+offset_top = -91.0
+offset_right = 682.0
+offset_bottom = 619.0
+color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_cs7ln")
+}

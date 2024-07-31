@@ -13,7 +13,7 @@ func state_process(_delta):
 func state_physics_process(_delta):
 	pass
 
-func state_input(event : InputEvent):
+func state_input(_event : InputEvent):
 	pass
 	
 func on_enter():

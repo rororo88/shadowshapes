@@ -1,6 +1,13 @@
 extends CharacterBody2D
 class_name Heroi
 
+signal damage_taken(amout)
+signal player_respawn
+
+@onready var damage_sound = $DamageSound
+@onready var death_sound = $DeathSound
+
+
 # VAR animação
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine : HeroiStateMachine = $HeroiStateMachine
@@ -75,8 +82,10 @@ func update_facing_direction():
 func get_damage(amount: int, received_knockback_direction: Vector2) -> void:
 	health -= amount
 	print(health)
+	emit_signal("damage_taken", amount)
 	apply_knockback(received_knockback_direction)
 	animation_player.play("knockback")
+	damage_sound.play()
 	if health <= 0:
 		die()
 
@@ -92,13 +101,18 @@ func die():
 	if health <= 0:
 		print("Heroi Morreu!!")
 		Global.call_deferred("lose_life") #lose_life()
+		death_sound.play()
 		reset_hero()
 
 # RESPAWN
 func reset_hero():
+	# reset items
+	Global.square = false
+	##
 	health = max_health
 	knockback_time = 0.0
 	set_position(start_pos)
+	emit_signal("player_respawn")
 	print("respawn", health)
 	if has_node(monster_path):
 		var monster = get_node(monster_path) as Monstro

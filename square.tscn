@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://drmsgt51w2r56"]
+
+[ext_resource type="Texture2D" uid="uid://m2ko8pq76855" path="res://assets/1bit_square.png" id="1_33goh"]
+[ext_resource type="Script" path="res://square.gd" id="1_pcaua"]
+[ext_resource type="AudioStream" uid="uid://dxh77rtnaquwl" path="res://assets/pickupCoin.wav" id="3_pn2lc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xe4x"]
+atlas = ExtResource("1_33goh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmy6e"]
+atlas = ExtResource("1_33goh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pc8ep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xe4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmy6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjvbf"]
+size = Vector2(26, 26)
+
+[node name="Square" type="Area2D"]
+script = ExtResource("1_pcaua")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_pc8ep")
+autoplay = "default"
+frame_progress = 0.0311999
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gjvbf")
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pn2lc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
