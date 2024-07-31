@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2jxhyik0ue47"]
+
+[ext_resource type="FontFile" uid="uid://bgc5t5ij6e38s" path="res://assets/Kenney Mini Square.ttf" id="1_3hgnc"]
+[ext_resource type="Script" path="res://Button.gd" id="2_2gxbk"]
+[ext_resource type="AudioStream" uid="uid://cvwefyluaxqtc" path="res://assets/restart.wav" id="3_eqj0n"]
+[ext_resource type="Script" path="res://ButtonMainMenu.gd" id="4_u663w"]
+
+[node name="WIN" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 652.0
+offset_bottom = 490.0
+color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+
+[node name="WIN TX" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -169.0
+offset_right = 194.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3hgnc")
+theme_override_font_sizes/font_size = 70
+text = "You win!"
+horizontal_alignment = 1
+
+[node name="ButtonRestart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -278.0
+offset_right = 61.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_3hgnc")
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+script = ExtResource("2_2gxbk")
+
+[node name="RestartSound" type="AudioStreamPlayer2D" parent="ButtonRestart"]
+position = Vector2(-235, -247)
+stream = ExtResource("3_eqj0n")
+volume_db = 1.224
+
+[node name="ButtonMainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -165.0
+offset_right = 64.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_3hgnc")
+theme_override_font_sizes/font_size = 26
+text = "Main menu"
+script = ExtResource("4_u663w")
+
+[node name="RestartSound" type="AudioStreamPlayer2D" parent="ButtonMainMenu"]
+position = Vector2(-235, -247)
+stream = ExtResource("3_eqj0n")
+volume_db = 1.224
+
+[connection signal="pressed" from="ButtonRestart" to="ButtonRestart" method="_on_pressed"]
+[connection signal="pressed" from="ButtonMainMenu" to="ButtonMainMenu" method="_on_pressed"]

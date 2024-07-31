@@ -26,3 +26,6 @@ func square_collect():
 	
 func triangle_collect():
 	triangle_shape.triangle_collected()
+	
+func circle_collect():
+	circle_shape.circle_collected()

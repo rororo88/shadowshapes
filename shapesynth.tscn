@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfp8igtnylhl6"]
+
+[ext_resource type="Texture2D" uid="uid://cagx4cx41vfpd" path="res://assets/1bit_synth.png" id="1_pwp5a"]
+[ext_resource type="Script" path="res://shapesynth.gd" id="1_y4btp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q000p"]
+size = Vector2(89, 53)
+
+[node name="ShapeSynth" type="Area2D"]
+script = ExtResource("1_y4btp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -32)
+scale = Vector2(3, 3)
+texture = ExtResource("1_pwp5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, -10.5)
+shape = SubResource("RectangleShape2D_q000p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
